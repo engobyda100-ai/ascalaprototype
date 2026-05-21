@@ -1,0 +1,14 @@
+# Static prototype — no build step. Serve files from repo root.
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*.jsx"
+  [headers.values]
+    Content-Type = "text/javascript; charset=utf-8"
+
+[[redirects]]
+  from = "/Ascala Prototype.html"
+  to = "/"
+  status = 301
