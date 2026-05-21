@@ -1,0 +1,210 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    ASCALA DEMO FAIR - AUDIENCE QUIZ                          ║
+║                     "Can You Predict User Behavior?"                         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Instructions: Ask the question, let them guess, then check the answer in the 
+prototype by clicking on the relevant report!
+
+================================================================================
+                              🏋️ WHOOP QUESTIONS
+================================================================================
+
+Q1: GUESS THE COMPLETION RATE
+    "What percentage of users complete Whoop's onboarding?"
+    
+    A) 72%    B) 52%    C) 38%
+    
+    ✓ Answer: B) 52%
+    → Check: Executive Summary > Overall completion rate
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q2: SPOT THE STRUGGLE
+    "Which user group struggles MOST with Whoop's recovery metrics?"
+    
+    A) Elite Athletes    B) CrossFit Enthusiasts    C) Health Beginners
+    
+    ✓ Answer: C) Health Beginners (only 31% completion!)
+    → Check: Executive Summary > Cluster findings
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q3: NAME THAT FRICTION
+    "What's the #1 reason casual users abandon Whoop?"
+    
+    (Let them guess freely, then reveal)
+    
+    ✓ Answer: "Recovery score lacks actionable context" - users don't know 
+              what 'green' actually means for their workout!
+    → Check: Onboarding or Activation report > Key findings
+
+────────────────────────────────────────────────────────────────────────────────
+
+Q4: WHO WINS?
+    "Elite athletes complete onboarding at what rate?"
+    
+    A) 62%    B) 72%    C) 82%
+    
+    ✓ Answer: C) 82%
+    → Check: Executive Summary > Cluster findings > Elite Athlete
+
+================================================================================
+                              📝 NOTION QUESTIONS  
+================================================================================
+
+Q5: THE BLANK PAGE PROBLEM
+    "What % of churned Notion users NEVER used a template?"
+    
+    A) 47%    B) 67%    C) 87%
+    
+    ✓ Answer: B) 67%
+    → Check: Chat conversation mentions this stat!
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q6: BEST VS WORST
+    "Team Leads complete at 71%. What about Graduate Students?"
+    
+    A) 58%    B) 42%    C) 28%
+    
+    ✓ Answer: C) 28% - Students find Notion overkill for simple notes!
+    → Check: Executive Summary > Persona profiles
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q7: WHAT'S THE BLOCKER?
+    "Solo founders get stuck at which moment?"
+    
+    A) Sign up    B) Blank page    C) Sharing
+    
+    ✓ Answer: B) Blank page - "paralysis" from too many options!
+    → Check: Persona profiles > Startup Founder
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q8: DISCOVERY PROBLEM
+    "What % of new users find Notion's templates in their first session?"
+    
+    A) 34%    B) 54%    C) 74%
+    
+    ✓ Answer: A) Only 34%! The template gallery is buried.
+    → Check: Onboarding report > Key findings
+
+================================================================================
+                              🎨 CANVA QUESTIONS
+================================================================================
+
+Q9: HIDDEN FEATURE
+    "How many designs do users typically create BEFORE finding Brand Kit?"
+    
+    A) 5    B) 10-15    C) 20+
+    
+    ✓ Answer: B) 10-15 designs (sometimes up to 20!)
+    → Check: Chat conversation or Activation report
+    
+────────────────────────────────────────────────────────────────────────────────
+
+Q10: MOBILE STRUGGLE
+     "What % of mobile creators switch to desktop or competitors?"
+     
+     A) 23%    B) 33%    C) 43%
+     
+     ✓ Answer: C) 43% - mobile app missing key features!
+     → Check: Engagement report > Key findings
+     
+────────────────────────────────────────────────────────────────────────────────
+
+Q11: TOP PERFORMER
+     "Which Canva persona has the HIGHEST completion rate?"
+     
+     A) Solo Entrepreneur (68%)
+     B) Marketing Manager (74%)  
+     C) Social Creator (45%)
+     
+     ✓ Answer: B) Marketing Managers at 74%!
+     → Check: Executive Summary > Persona profiles
+     
+────────────────────────────────────────────────────────────────────────────────
+
+Q12: TIME WASTED
+     "Brand kit could save users how many hours per week?"
+     
+     A) 30 minutes    B) 1 hour    C) 2+ hours
+     
+     ✓ Answer: C) 2+ hours! (re-uploading logos, setting colors manually)
+     → Check: Onboarding report > Key findings
+
+================================================================================
+                           🎯 RAPID FIRE ROUND
+              (Quick yes/no or higher/lower questions)
+================================================================================
+
+Q13: "Whoop's Elite Athletes - completion above or below 80%?"
+     ✓ Answer: ABOVE (82%)
+
+Q14: "Notion's overall completion - above or below 50%?"
+     ✓ Answer: BELOW (46%)
+
+Q15: "Canva's overall completion - above or below 60%?"
+     ✓ Answer: ABOVE (62%)
+
+Q16: "Do more than half of Whoop's Health Beginners complete onboarding?"
+     ✓ Answer: NO (only 31%)
+
+Q17: "Does Notion's Team Lead persona outperform Startup Founders?"
+     ✓ Answer: YES (71% vs 42%)
+
+Q18: "Is mobile feature parity a top issue for Canva?"
+     ✓ Answer: YES - 43% of mobile users leave!
+
+================================================================================
+                        🏆 BONUS: PREDICTION CHALLENGE
+================================================================================
+
+Before showing ANY results, ask the audience:
+
+"Looking at this product (Whoop/Notion/Canva), which user type do you 
+think will have the HARDEST time completing onboarding?"
+
+Show the personas, let them vote, then reveal the data!
+
+Great for:
+- Whoop: Most guess "Elite Athletes" will breeze through (correct!)
+         but underestimate how badly "Health Beginners" struggle (31%)
+         
+- Notion: Many assume "Students" are tech-savvy (wrong! 28%)
+          The surprise is how much "Team Leads" succeed (71%)
+          
+- Canva:  "Solo Entrepreneurs" seems easy (68% is decent)
+          "Social Creators" struggle more than expected (45%)
+
+================================================================================
+                           💡 ENGAGEMENT TIPS
+================================================================================
+
+1. START EASY: Begin with Q1 or Q9 - straightforward number guesses
+
+2. BUILD DRAMA: Save the "Prediction Challenge" for last
+
+3. PRIZE TIERS:
+   - 1 correct = Small prize (sticker, candy)
+   - 3 correct = Medium prize  
+   - 5+ correct = Grand prize
+
+4. MAKE IT VISUAL: Pull up the prototype and verify answers live!
+
+5. TIME IT: Give 5-10 seconds per question to keep energy high
+
+================================================================================
+                         HOW TO VERIFY IN THE PROTOTYPE
+================================================================================
+
+1. Select website from dropdown (Whoop/Notion/Canva)
+2. Click "Generate Persona" if not already done
+3. Select tests and run simulation
+4. Click on test results to see detailed reports
+5. Check "Executive Summary" for overall stats
+6. Check "Persona profiles" sidebar for per-group data
+
+================================================================================

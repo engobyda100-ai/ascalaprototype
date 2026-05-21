@@ -1,0 +1,20 @@
+window.QUIZ_QUESTIONS = [
+  { id: 1, site: "Whoop", text: "What percentage of users complete Whoop onboarding?", choices: ["72%", "52%", "38%"] },
+  { id: 2, site: "Whoop", text: "Which user group struggles most with recovery metrics?", choices: ["Elite Athletes", "Fitness Enthusiasts", "Health Beginners"] },
+  { id: 3, site: "Whoop", text: "What is the #1 friction causing abandonment?", choices: ["Device pairing issue", "Recovery score lacks context", "Subscription price"] },
+  { id: 4, site: "Whoop", text: "Elite athletes complete onboarding at:", choices: ["62%", "72%", "82%"] },
+  { id: 5, site: "Notion", text: "What % of churned users never used a template?", choices: ["47%", "67%", "87%"] },
+  { id: 6, site: "Notion", text: "Graduate Student completion rate is:", choices: ["58%", "42%", "28%"] },
+  { id: 7, site: "Notion", text: "Startup founders get stuck most at:", choices: ["Sign up", "Blank page", "Sharing"] },
+  { id: 8, site: "Notion", text: "How many users find templates in first session?", choices: ["34%", "54%", "74%"] },
+  { id: 9, site: "Canva", text: "Users discover Brand Kit after about how many designs?", choices: ["5", "10-15", "20+"] },
+  { id: 10, site: "Canva", text: "Mobile creators switching away is around:", choices: ["23%", "33%", "43%"] },
+  { id: 11, site: "Canva", text: "Highest completion persona in Canva is:", choices: ["Solo Entrepreneur", "Marketing Manager", "Social Creator"] },
+  { id: 12, site: "Canva", text: "Brand kit setup can save users roughly:", choices: ["30 min/week", "1 hour/week", "2+ hours/week"] },
+  { id: 13, site: "Rapid Fire", text: "Whoop Elite Athlete completion is above 80%?", choices: ["Yes", "No", "Not enough data"] },
+  { id: 14, site: "Rapid Fire", text: "Notion overall completion is above 50%?", choices: ["Yes", "No", "Exactly 50%"] },
+  { id: 15, site: "Rapid Fire", text: "Canva overall completion is above 60%?", choices: ["Yes", "No", "Exactly 60%"] },
+  { id: 16, site: "Rapid Fire", text: "More than half of Whoop Health Beginners complete?", choices: ["Yes", "No", "Equal split"] },
+  { id: 17, site: "Rapid Fire", text: "Notion Team Leads outperform Startup Founders?", choices: ["Yes", "No", "Tied"] },
+  { id: 18, site: "Rapid Fire", text: "Is mobile feature parity a top Canva issue?", choices: ["Yes", "No", "Only for desktop users"] }
+];

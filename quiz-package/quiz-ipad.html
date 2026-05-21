@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Ascala Quiz iPad</title>
+  <style>
+    :root {
+      --bg: #f7f2ec;
+      --card: #fdf9f4;
+      --ink: #2c1f18;
+      --ink-soft: #6f5d52;
+      --terra: #c26a43;
+      --line: #e8ddd2;
+      --shadow: 0 16px 28px rgba(84, 48, 30, 0.12);
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 10%, rgba(194,106,67,.13), transparent 35%), var(--bg);
+      min-height: 100dvh;
+      padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(12px, env(safe-area-inset-left));
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 14px 8px 20px; }
+    .hero { text-align: center; margin-bottom: 14px; }
+    .hero-logo { width: 52px; height: 52px; }
+    h1 { margin: 8px 0 0; font-size: clamp(24px, 3.8vw, 44px); line-height: 1.05; }
+    h1 span { color: var(--terra); }
+    .layout { display: grid; grid-template-columns: 310px 1fr; gap: 12px; }
+    .panel { background: rgba(253,249,244,.94); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .left, .right { padding: 14px; }
+    .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .panel-head h2 { margin: 0; font-size: 13px; text-transform: uppercase; color: var(--ink-soft); letter-spacing: .03em; }
+    .pill { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; color: var(--terra); background: rgba(194,106,67,.14); border: 1px solid rgba(194,106,67,.25); padding: 4px 8px; border-radius: 999px; }
+    .start-btn {
+      width: 100%; margin: 6px 0 10px; border: none; border-radius: 12px; padding: 12px;
+      font-size: 14px; font-weight: 700; color: #fff; cursor: pointer;
+      background: linear-gradient(135deg, var(--terra) 0%, #da8960 100%);
+    }
+    .q-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; }
+    .q-btn {
+      border: 1px solid var(--line); background: #fff; border-radius: 12px; min-height: 48px;
+      font-weight: 700; font-size: 16px; cursor: pointer;
+    }
+    .q-btn.active { background: linear-gradient(135deg, var(--terra) 0%, #dc8a5d 100%); color: #fff; border-color: transparent; }
+    .question-card { border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, #fffdfa 0%, #fff7ef 100%); padding: 14px; min-height: 64dvh; display: flex; flex-direction: column; gap: 10px; }
+    .meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-soft); }
+    .tag { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; background: rgba(194,106,67,.12); color: #a65330; border: 1px solid rgba(194,106,67,.24); border-radius: 999px; padding: 4px 10px; }
+    .question-text { font-size: clamp(24px, 4vw, 40px); line-height: 1.1; margin: 4px 0 8px; max-width: 22ch; }
+    .answers { display: grid; gap: 10px; }
+    .answer {
+      border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 14px; text-align: left; cursor: pointer;
+      display: flex; align-items: center; gap: 10px; font-size: clamp(16px, 2.1vw, 21px);
+      min-height: 56px;
+    }
+    .answer .key {
+      width: 30px; height: 30px; border-radius: 8px; background: #f4ebe1; color: #a65330;
+      display: grid; place-items: center; font-weight: 700; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+      flex: 0 0 auto;
+    }
+    .answer.selected { border-color: rgba(194,106,67,.6); background: rgba(194,106,67,.14); }
+    .answer-locate {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      padding: 10px 12px;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.75);
+    }
+    .result { margin-top: auto; border-radius: 12px; border: 1px solid var(--line); padding: 12px; font-size: 14px; color: var(--ink-soft); min-height: 54px; background: #fff; }
+    .controls { margin-top: 8px; display: flex; gap: 8px; justify-content: flex-end; }
+    .btn { border: 1px solid var(--line); background: #fff; color: var(--ink-soft); border-radius: 10px; padding: 10px 13px; font-size: 13px; font-weight: 700; cursor: pointer; min-height: 44px; }
+    .btn.primary { background: linear-gradient(135deg, var(--terra) 0%, #da8960 100%); border-color: transparent; color: #fff; }
+
+    @media (max-width: 1024px) {
+      .layout { grid-template-columns: 1fr; }
+      .question-card { min-height: auto; }
+      .question-text { max-width: none; }
+      .q-grid { grid-template-columns: repeat(9, minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Acala logo">
+        <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C26A43"/><stop offset="100%" stop-color="#DA8960"/></linearGradient></defs>
+        <rect x="4" y="4" width="56" height="56" rx="14" fill="#F8EEE4"/>
+        <path d="M31.8 15.5 46 45.5h-6.2l-2.6-5.8H25.8l-2.6 5.8H17l14.2-30zm0 13.3-3.6 8h7.2l-3.6-8z" fill="url(#g)"/>
+      </svg>
+      <h1>Can you predict user behavior <span>with Acala?</span></h1>
+    </section>
+
+    <section class="layout">
+      <aside class="panel left">
+        <div class="panel-head">
+          <h2>Question Board</h2>
+          <span class="pill">1-18</span>
+        </div>
+        <button id="startBtn" class="start-btn">Start</button>
+        <div id="questionGrid" class="q-grid"></div>
+      </aside>
+
+      <section class="panel right">
+        <article class="question-card">
+          <div class="meta">
+            <span id="qTag" class="tag">Ready</span>
+            <strong id="qNumber"></strong>
+          </div>
+          <h2 id="qText" class="question-text">Start now</h2>
+          <div id="answers" class="answers"></div>
+          <div id="answerLocate" class="answer-locate"></div>
+          <div id="result" class="result"></div>
+          <div class="controls">
+            <button id="resetBtn" class="btn">Reset</button>
+            <button id="nextBtn" class="btn primary">Next</button>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const QUESTIONS = [
+      { id: 1, site: "Whoop", text: "What is the overall completion rate for Whoop users?", choices: ["72%", "52%", "38%"], locate: "Where: Whoop -> Executive Summary card -> Overall completion rate." },
+      { id: 2, site: "Whoop", text: "Which persona group struggles most with recovery metrics?", choices: ["Elite Athletes", "Fitness Enthusiasts", "Health Beginners"], locate: "Where: Whoop -> Executive Summary -> Cluster findings (lowest completion row)." },
+      { id: 3, site: "Whoop", text: "What is the #1 friction causing abandonment?", choices: ["Device pairing issue", "Recovery score lacks context", "Subscription price"], locate: "Where: Whoop -> Activation report -> Key Findings -> #1 item." },
+      { id: 4, site: "Whoop", text: "Elite athletes complete onboarding at:", choices: ["62%", "72%", "82%"], locate: "Where: Whoop -> Executive Summary -> Cluster findings -> Elite Athlete completion." },
+      { id: 6, site: "Notion", text: "Graduate Student completion rate is:", choices: ["58%", "42%", "28%"], locate: "Where: Notion -> Persona profiles panel -> Graduate Student badge." },
+      { id: 7, site: "Notion", text: "Startup founders get stuck most at:", choices: ["Sign up", "Blank page", "Sharing"], locate: "Where: Notion -> Persona profiles -> Startup Founder summary line." },
+      { id: 8, site: "Notion", text: "How many users find templates in first session?", choices: ["34%", "54%", "74%"], locate: "Where: Notion -> Onboarding report -> Key Findings #1 or #2." },
+      { id: 9, site: "Canva", text: "Users discover Brand Kit after about how many designs?", choices: ["5", "10-15", "20+"], locate: "Where: Canva -> Activation report -> Key Findings #1/#2 (Brand Kit discovery)." },
+      { id: 10, site: "Canva", text: "Mobile creators switching away is around:", choices: ["23%", "33%", "43%"], locate: "Where: Canva -> Engagement report -> Key Findings #1." },
+      { id: 11, site: "Canva", text: "Highest completion persona in Canva is:", choices: ["Solo Entrepreneur", "Marketing Manager", "Social Creator"], locate: "Where: Canva -> Persona profiles -> compare completion badges." },
+      { id: 12, site: "Canva", text: "Brand kit setup can save users roughly:", choices: ["30 min/week", "1 hour/week", "2+ hours/week"], locate: "Where: Canva -> Onboarding report -> Key Findings / recommended fixes summary." },
+      { id: 13, site: "Rapid Fire", text: "Whoop Elite Athlete completion is above 80%?", choices: ["Yes", "No", "Not enough data"], locate: "Where: Whoop -> Executive Summary -> Cluster findings (Elite Athlete)." },
+      { id: 14, site: "Rapid Fire", text: "Notion overall completion is above 50%?", choices: ["Yes", "No", "Exactly 50%"], locate: "Where: Notion -> Executive Summary card -> Overall completion rate." },
+      { id: 15, site: "Rapid Fire", text: "Canva overall completion is above 60%?", choices: ["Yes", "No", "Exactly 60%"], locate: "Where: Canva -> Executive Summary card -> Overall completion rate." },
+      { id: 16, site: "Rapid Fire", text: "More than half of Whoop Health Beginners complete?", choices: ["Yes", "No", "Equal split"], locate: "Where: Whoop -> Persona profiles -> Health Beginner completion badge." },
+      { id: 17, site: "Rapid Fire", text: "Notion Team Leads outperform Startup Founders?", choices: ["Yes", "No", "Tied"], locate: "Where: Notion -> Executive Summary -> Cluster findings rows for Team Lead and Founder." },
+      { id: 18, site: "Rapid Fire", text: "Is mobile feature parity a top Canva issue?", choices: ["Yes", "No", "Only for desktop users"], locate: "Where: Canva -> Engagement report -> Key Findings #1 and summary sentence." },
+      { id: 19, site: "Persona Group", text: "Who is the worst-performing persona in Whoop?", choices: ["Elite Athlete", "Fitness Enthusiast", "Health Beginner"], locate: "Where: Whoop -> Persona profiles -> lowest completion badge." },
+      { id: 20, site: "Persona Group", text: "Who is the best-performing persona in Notion?", choices: ["Startup Founder", "Team Lead PM", "Graduate Student"], locate: "Where: Notion -> Persona profiles -> highest completion badge." },
+      { id: 21, site: "Persona Group", text: "Which Canva persona should be prioritized first for improvements?", choices: ["Marketing Manager", "Social Creator", "Solo Entrepreneur"], locate: "Where: Canva -> Persona profiles -> lowest completion + friction tags." },
+      { id: 22, site: "Precision Check", text: "What is the time-to-aha for Notion users?", choices: ["3m 05s", "4m 12s", "6m 20s"], locate: "Where: Notion -> Activation report -> Summary -> Time-to-aha." },
+      { id: 23, site: "Precision Check", text: "What is the accessibility friction score for Notion Graduate Student users who scored 80 in tech savviness?", choices: ["12%", "22%", "32%"], locate: "Where: Notion -> Accessibility report -> Persona distribution chart (Graduate Student at tech savviness 80)." },
+      { id: 24, site: "Precision Check", text: "How many consent gaps are in Canva compliance?", choices: ["1", "2", "3"], locate: "Where: Canva -> Compliance report -> Summary stats -> Consent gaps." }
+    ];
+
+    const grid = document.getElementById("questionGrid");
+    const qTag = document.getElementById("qTag");
+    const qNumber = document.getElementById("qNumber");
+    const qText = document.getElementById("qText");
+    const answers = document.getElementById("answers");
+    const answerLocate = document.getElementById("answerLocate");
+    const result = document.getElementById("result");
+    const startBtn = document.getElementById("startBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let current = 0;
+
+    function setActiveButton(index) {
+      [...grid.children].forEach((node, i) => node.classList.toggle("active", i === index));
+    }
+
+    function evaluate(button) {
+      [...answers.children].forEach(node => node.classList.remove("selected"));
+      button.classList.add("selected");
+      result.style.visibility = "visible";
+      result.textContent = "Answer selected and locked. (No reveal shown)";
+    }
+
+    function renderQuestion(index) {
+      current = index;
+      const q = QUESTIONS[index];
+      setActiveButton(index);
+      qTag.textContent = q.site;
+      qNumber.textContent = "Question " + q.id;
+      qText.textContent = q.text;
+      answerLocate.textContent = q.locate || "Find it in prototype: open the matching website report and check Executive Summary / Persona profiles.";
+      result.style.visibility = "hidden";
+      result.textContent = "";
+      resetBtn.style.display = "";
+      nextBtn.style.display = "";
+      answers.innerHTML = "";
+
+      q.choices.forEach((choice, choiceIndex) => {
+        const answerBtn = document.createElement("button");
+        answerBtn.className = "answer";
+        answerBtn.innerHTML = '<span class="key">' + String.fromCharCode(65 + choiceIndex) + '</span><span>' + choice + '</span>';
+        answerBtn.addEventListener("click", () => evaluate(answerBtn));
+        answers.appendChild(answerBtn);
+      });
+    }
+
+    function showStartScreen() {
+      setActiveButton(-1);
+      qTag.textContent = "Ready";
+      qNumber.textContent = "";
+      qText.textContent = "Start now";
+      answers.innerHTML = "";
+      answerLocate.textContent = "";
+      result.textContent = "";
+      result.style.visibility = "hidden";
+      resetBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+
+    QUESTIONS.forEach((q, i) => {
+      const btn = document.createElement("button");
+      btn.className = "q-btn";
+      btn.textContent = q.id;
+      btn.addEventListener("click", () => renderQuestion(i));
+      grid.appendChild(btn);
+    });
+
+    resetBtn.addEventListener("click", () => renderQuestion(current));
+    nextBtn.addEventListener("click", () => renderQuestion((current + 1) % QUESTIONS.length));
+    startBtn.addEventListener("click", showStartScreen);
+
+    showStartScreen();
+  </script>
+</body>
+</html>
